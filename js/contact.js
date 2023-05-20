@@ -3,7 +3,7 @@ $(document).ready(function() {
     function contactBtn() {
 
       var email = prompt("Please enter your email address:");
-      var telephone_number = prompt("Please enter your telephone number:");
+      var phoneNumber = prompt("Please enter your telephone number:");
       var address = prompt("Please enter your address:");
   
 
@@ -12,13 +12,19 @@ $(document).ready(function() {
         alert("Invalid email address!");
         return;
       }
+
+      var phoneNumberRegex = /^\d{8}$/;
+      if(!phoneNumberRegex.test(phoneNumber)) {
+        alert("Invalid phone number!");
+        return;
+      }
   
       $("#contactDetails .col-md-4:nth-child(2) p").text(email);
-      $("#contactDetails .col-md-4:nth-child(1) p").text(telephone_number);
+      $("#contactDetails .col-md-4:nth-child(1) p").text(phoneNumber);
       $("#contactDetails .col-md-4:nth-child(3) p").text(address);
   
       console.log("From: " + email);
-      console.log("Contact: " + telephone_number);
+      console.log("Contact: " + phoneNumber);
       console.log("Address: " + address);
     }
   
